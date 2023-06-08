@@ -1,0 +1,34 @@
+#######################################
+# Classes, datatypes (KEYWORD1)
+#######################################
+
+DigitDisplay	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+Setup	KEYWORD2
+Clear	KEYWORD2
+SetBlinkRate	KEYWORD2
+SetBrightness	KEYWORD2
+ShowColon	KEYWORD2
+ShowDigitNumber	KEYWORD2
+ShowNumber	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+kDeviceI2cAddress	LITERAL1
+kBlinkOff	LITERAL1
+kBlinkRate2Hz	LITERAL1
+kBlinkRate1Hz	LITERAL1
+kBlinkRateHalfHz	LITERAL1
+
+kBin	LITERAL1
+kOct	LITERAL1
+kDec	LITERAL1
+kHex	LITERAL1
+
+kBrightnessMax	LITERAL1
