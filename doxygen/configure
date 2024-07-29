@@ -4,9 +4,4 @@ PROJECT_NAME           = "Emakefun 4 Digit 7 Segment Display"
 PROJECT_NUMBER         = 1.0
 ENABLED_SECTIONS       = Chinese
 OUTPUT_LANGUAGE        = Chinese
-INPUT                  = src \
-                       = examples/set_blink_rate/set_blink_rate.ino \
-                         examples/show_colon/show_colon.ino \
-                         examples/show_decimal_number/show_decimal_number.ino \
-                         examples/show_digit_number/show_digit_number.ino \
-                         examples/show_integer_number/show_integer_number.ino
+INPUT                  = src

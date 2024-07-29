@@ -41,13 +41,23 @@ void setup() {
 }
 
 void loop() {
-  g_digital_display.ShowNumber(1234);
-
-  g_digital_display.ShowColon(true);
+  const int int_value = 1234;
+  g_digital_display.ShowNumber(int_value);
   g_digital_display.Dispaly();
-  delay(200);
+  delay(1000);
 
-  g_digital_display.ShowColon(false);
+  const float float_value = 23.45;
+  g_digital_display.ShowNumber(float_value);
   g_digital_display.Dispaly();
-  delay(200);
+  delay(1000);
+
+  const double double_value = -1.23;
+  g_digital_display.ShowNumber(double_value);
+  g_digital_display.Dispaly();
+  delay(1000);
+
+  const int large_value = 99999;
+  g_digital_display.ShowNumber(large_value);
+  g_digital_display.Dispaly();
+  delay(1000);
 }
