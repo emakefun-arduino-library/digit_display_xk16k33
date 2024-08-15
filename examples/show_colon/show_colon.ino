@@ -8,7 +8,7 @@
 
 namespace {
 
-emakefun::DigitDispalyXk16k33 g_digital_display;
+emakefun::DigitDisplayXk16k33 g_digital_display;
 
 void InfiniteLoopOnFailure(const char* function, const uint32_t line_number) {
   Serial.println(String(F("entering an infinite loop due to failure in ")) + function + F(", at line number: ") + line_number);
@@ -44,10 +44,10 @@ void loop() {
   g_digital_display.ShowNumber(1234);
 
   g_digital_display.ShowColon(true);
-  g_digital_display.Dispaly();
+  g_digital_display.Display();
   delay(200);
 
   g_digital_display.ShowColon(false);
-  g_digital_display.Dispaly();
+  g_digital_display.Display();
   delay(200);
 }

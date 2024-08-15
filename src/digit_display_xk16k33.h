@@ -7,7 +7,7 @@
 #include "xk16k33.h"
 
 namespace emakefun {
-class DigitDispalyXk16k33 : public Xk16k33 {
+class DigitDisplayXk16k33 : public Xk16k33 {
  public:
   static constexpr uint8_t kDigitNumber = 4;
 
@@ -42,7 +42,7 @@ class DigitDispalyXk16k33 : public Xk16k33 {
     return ShowNumber(static_cast<double>(value), base, fractional_part_digits);
   }
   bool ShowNumber(double value, const uint8_t base = kDec, uint8_t fractional_part_digits = 2);
-  Xk16k33::ErrorCode Dispaly();
+  Xk16k33::ErrorCode Display();
 
  private:
   uint8_t data_[kDigitNumber] = {0};

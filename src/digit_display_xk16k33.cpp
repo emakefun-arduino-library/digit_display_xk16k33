@@ -25,7 +25,7 @@ constexpr uint8_t kColonAddress = 0x04;
 constexpr uint8_t kDigitlAddress[] = {0x08, 0x06, 0x02, 0x00};
 };  // namespace
 
-Xk16k33::ErrorCode DigitDispalyXk16k33::Initialize() {
+Xk16k33::ErrorCode DigitDisplayXk16k33::Initialize() {
   Xk16k33::ErrorCode error_code = kOK;
   error_code = Xk16k33::Initialize();
   if (error_code != kOK) {
@@ -40,24 +40,24 @@ Xk16k33::ErrorCode DigitDispalyXk16k33::Initialize() {
     return error_code;
   }
 
-  error_code = Dispaly();
+  error_code = Display();
   return error_code;
 }
 
-void DigitDispalyXk16k33::Clear() {
+void DigitDisplayXk16k33::Clear() {
   memset(data_, sizeof(data_), 0x00);
   colon_ = false;
 }
 
-void DigitDispalyXk16k33::ShowColon(const bool on) {
+void DigitDisplayXk16k33::ShowColon(const bool on) {
   colon_ = on;
 }
 
-void DigitDispalyXk16k33::ShowDigitNumber(const uint8_t pos, const uint8_t num, const bool dot) {
+void DigitDisplayXk16k33::ShowDigitNumber(const uint8_t pos, const uint8_t num, const bool dot) {
   data_[pos] = kNumberValues[num] | (dot << 7);
 }
 
-void DigitDispalyXk16k33::ShowSegment(const uint8_t pos, const uint8_t value, const bool on) {
+void DigitDisplayXk16k33::ShowSegment(const uint8_t pos, const uint8_t value, const bool on) {
   if (on) {
     data_[pos] |= value;
   } else {
@@ -65,7 +65,7 @@ void DigitDispalyXk16k33::ShowSegment(const uint8_t pos, const uint8_t value, co
   }
 }
 
-bool DigitDispalyXk16k33::ShowNumber(double value, const uint8_t base, uint8_t fractional_part_digits) {
+bool DigitDisplayXk16k33::ShowNumber(double value, const uint8_t base, uint8_t fractional_part_digits) {
   uint8_t numeric_digits = kDigitNumber;  // available digits on display
 
   bool is_negative = false;
@@ -118,7 +118,7 @@ bool DigitDispalyXk16k33::ShowNumber(double value, const uint8_t base, uint8_t f
   return true;
 }
 
-Xk16k33::ErrorCode DigitDispalyXk16k33::Dispaly() {
+Xk16k33::ErrorCode DigitDisplayXk16k33::Display() {
   for (uint8_t i = 0; i < kDigitNumber; i++) {
     Write(kDigitlAddress[i], data_[i]);
   }

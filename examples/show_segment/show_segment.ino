@@ -8,7 +8,7 @@
 
 namespace {
 
-emakefun::DigitDispalyXk16k33 g_digital_display;
+emakefun::DigitDisplayXk16k33 g_digital_display;
 
 void InfiniteLoopOnFailure(const char* function, const uint32_t line_number) {
   Serial.println(String(F("entering an infinite loop due to failure in ")) + function + F(", at line number: ") + line_number);
@@ -42,37 +42,37 @@ void setup() {
 
 void loop() {
   constexpr uint8_t segments[] = {
-      emakefun::DigitDispalyXk16k33::kSegmentA,
-      emakefun::DigitDispalyXk16k33::kSegmentB,
-      emakefun::DigitDispalyXk16k33::kSegmentC,
-      emakefun::DigitDispalyXk16k33::kSegmentD,
-      emakefun::DigitDispalyXk16k33::kSegmentE,
-      emakefun::DigitDispalyXk16k33::kSegmentF,
-      emakefun::DigitDispalyXk16k33::kSegmentG,
-      emakefun::DigitDispalyXk16k33::kSegmentH,
+      emakefun::DigitDisplayXk16k33::kSegmentA,
+      emakefun::DigitDisplayXk16k33::kSegmentB,
+      emakefun::DigitDisplayXk16k33::kSegmentC,
+      emakefun::DigitDisplayXk16k33::kSegmentD,
+      emakefun::DigitDisplayXk16k33::kSegmentE,
+      emakefun::DigitDisplayXk16k33::kSegmentF,
+      emakefun::DigitDisplayXk16k33::kSegmentG,
+      emakefun::DigitDisplayXk16k33::kSegmentH,
   };
 
-  for (uint8_t pos = 0; pos < emakefun::DigitDispalyXk16k33::kDigitNumber; ++pos) {
+  for (uint8_t pos = 0; pos < emakefun::DigitDisplayXk16k33::kDigitNumber; ++pos) {
     for (uint8_t segment_index = 0; segment_index < sizeof(segments); ++segment_index) {
       g_digital_display.ShowSegment(pos, segments[segment_index], true);
-      g_digital_display.Dispaly();
+      g_digital_display.Display();
       delay(100);
     }
   }
 
   g_digital_display.ShowColon(true);
-  g_digital_display.Dispaly();
+  g_digital_display.Display();
   delay(100);
 
-  for (uint8_t pos = 0; pos < emakefun::DigitDispalyXk16k33::kDigitNumber; ++pos) {
+  for (uint8_t pos = 0; pos < emakefun::DigitDisplayXk16k33::kDigitNumber; ++pos) {
     for (uint8_t segment_index = 0; segment_index < sizeof(segments); ++segment_index) {
       g_digital_display.ShowSegment(pos, segments[segment_index], false);
-      g_digital_display.Dispaly();
+      g_digital_display.Display();
       delay(100);
     }
   }
 
   g_digital_display.ShowColon(false);
-  g_digital_display.Dispaly();
+  g_digital_display.Display();
   delay(100);
 }
